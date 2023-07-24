@@ -1,20 +1,40 @@
+import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import WellCome from './Screen/WellCome';
+import NFT from './Screen/NFT';
+import Home from './Screen/Home';
+
 
 export default function App() {
+  const Stack =createNativeStackNavigator()
+  const [fontLoaded] = useFonts({
+    InterBold: require('./assets/Fonts/Inter-Bold.ttf'),
+    InterLight: require('./assets/Fonts/Inter-Light.ttf'),
+    InterMedium: require('./assets/Fonts/Inter-Medium.ttf'),
+    InterRegular: require('./assets/Fonts/Inter-Regular.ttf'),
+    InterSemiBold: require('./assets/Fonts/Inter-SemiBold.ttf'),
+  });
+  if (!fontLoaded) return null
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar style="light" animated={true} />
+      <NavigationContainer>
+        <Stack.Navigator 
+        initialRouteName='WellCome'
+         screenOptions={{
+          headerShown:false,
+
+        }}>
+    <Stack.Screen name='Home' component={Home}/>
+    <Stack.Screen name='WellCome' component={WellCome}/>
+    <Stack.Screen name='nft' component={NFT}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+   
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

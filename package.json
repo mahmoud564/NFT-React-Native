@@ -1,21 +1,32 @@
 {
-  "name": "project1",
+  "name": "nft",
   "version": "1.0.0",
+  "homepage": "https://mahmoud564.github.io/NFT-React-Native",   
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "predeploy": "npm run build",
+     "deploy": "gh-pages -d build",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
   "dependencies": {
+    "@ant-design/icons-react-native": "^2.3.2",
+    "@expo/vector-icons": "^13.0.0",
+    "@react-navigation/native": "^6.1.7",
+    "@react-navigation/native-stack": "^6.9.13",
+    "@shopify/flash-list": "1.4.0",
     "expo": "~48.0.18",
+    "expo-dev-client": "~2.2.1",
+    "expo-font": "~11.1.1",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "gh-pages": "^5.0.0"
   },
   "private": true
 }
